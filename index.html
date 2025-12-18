@@ -24,8 +24,8 @@
      <!-- preloading images -->
 
      <link rel="preload" as="image" href="./images/logo-white.png">
-     <link rel="preload" as="image" href="images/new/banner1.webp" media="screen and (max-width:768px)">
-     <link rel="preload" as="image" href="images/new/b1.webp" media="screen and (min-width:768px)">
+     <link rel="preload" as="image" href="./images/MOBILE 1.png" media="screen and (max-width:768px)">
+     <link rel="preload" as="image" href="./images/banner1.png" media="screen and (min-width:768px)">
      <link rel="preload" as="style" href="style.css">
      <link rel="preload" as="style" href="https://cdn.jsdelivr.net/">
      <link rel="dns-preconnect" href="https://divine.aashrithaa.com/">
@@ -388,9 +388,9 @@
                      <h5>Live miles away from the concrete jungle.</h5> -->
                             <picture>
                                 <source media="(min-width:768px)" srcset="./images/banner1.png" style="width:100%">
-                                <source media="(max-width:768px)" class="w-100" srcset="images/new/banner1.webp"
+                                <source media="(max-width:768px)" class="w-100" srcset="./images/MOBILE 1.png"
                                     style="width:100%" height="724px" width="412px" style="width:100%; min-height: 88vh; ">
-                                <img src="./images/banner1.png" class="img-fluid" alt="Aashritha divine banner" title="Aashritha divine banner" style="width:100%; min-height: 88vh; ">
+                                <img src="./images/MOBILE 1.png" class="img-fluid" alt="Aashritha divine banner" title="Aashritha divine banner" style="width:100%; min-height: 88vh; ">
                             </picture>
 
                         </div>
@@ -399,9 +399,9 @@
 
                             <picture>
                                 <source media="(min-width:768px)" srcset="./images/banner2.png" style="width:100%">
-                                <source media="(max-width:768px)" class="w-100" srcset="images/new/Banner2.webp"
+                                <source media="(max-width:768px)" class="w-100" srcset="./images/MOBILE 2.png"
                                     style="width:100%" height="724px" width="412px" style="width:100%; min-height: 88vh; ">
-                                <img src="./images/banner2.png" class="img-fluid" alt="Aashritha divine banner" title="Aashritha divine banner" style="width:100%; min-height: 88vh; ">
+                                <img src="./images/MOBILE 2.png" class="img-fluid" alt="Aashritha divine banner" title="Aashritha divine banner" style="width:100%; min-height: 88vh; ">
                             </picture>
                         </div>
 
@@ -1307,19 +1307,18 @@
                 <div class="modal-body border-top">
                     <div class=" pb-0">
                         <div id="popup-note"></div>
-                        <form action="" id="popup-form_price">
-                            <div class="popup-note_price"></div>
+                        <form action="https://emailjsfuntions-428145106157.asia-south1.run.app/varunda-city-popup-form" method="POST" id="popup-form">
+                            <div class="popup-note"></div>
                             <div class="text-center pb-3 px-2 rounded-2">
                                 <input type="text" class="form-control mt-3 py-2" name="name" placeholder="Name" required>
-
+                        
                                 <input type="email" class="form-control mt-3 py-2" name="email" placeholder="Email" required>
-
-                                <input type="text" class="form-control mt-3 py-2" name="mobile" placeholder="Phone" required>
-
-                                <textarea name="comment" cols="30" rows="2" placeholder="Message"
-                                    class="form-control mt-3 py-2"  required></textarea>
-                                <button type="submit" id="popup-btn_price"
-                                    class="btn text-white border-white mt-3 w-50 bg-main">Submit</button>
+                                
+                                <input type="tel" class="form-control mt-3 py-2" name="mobile" placeholder="Phone" required>
+                                
+                                <textarea name="comment" cols="30" rows="2" placeholder="Message" class="form-control mt-3 py-2" required></textarea>
+                                
+                                <button type="submit" id="popup-btn" class="btn text-white border-white mt-3 w-50 bg-main">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -1343,18 +1342,14 @@
                 <div class="modal-body border-top">
                     <div class=" pb-0">
                         <div id="brochure-note"></div>
-                        <form action="" id="brochure-form">
+                        <form id="brochure-form">
                             <div class="brochure-note"></div>
                             <div class="text-center pb-3 px-2 rounded-2">
                                 <input type="text" class="form-control mt-3 py-2" name="name" placeholder="Name" required>
-
                                 <input type="email" class="form-control mt-3 py-2" name="email" placeholder="Email" required>
-
-                                <input type="text" class="form-control mt-3 py-2" name="mobile" placeholder="Phone" required>
-                                <textarea name="comment" cols="30" rows="2" placeholder="Message"
-                                    class="form-control mt-3 py-2" required></textarea>
-                                <button type="submit" id="brochure-btn"
-                                    class="btn text-white border-white mt-3 w-50 bg-main">Submit</button>
+                                <input type="tel" class="form-control mt-3 py-2" name="mobile" placeholder="Phone" required>
+                                <textarea name="comment" cols="30" rows="2" placeholder="Message" class="form-control mt-3 py-2" required></textarea>
+                                <button type="submit" id="brochure-btn" class="btn text-white border-white mt-3 w-50 bg-main">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -1563,6 +1558,76 @@
 
        
     </script>
+
+
+<script>
+    // Function to download PDF
+function downloadBrochure(pdfPath) {
+  const link = document.createElement('a');
+  link.href = pdfPath;
+  link.download = 'Vrunda-Brochure.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// Initialize brochure form
+const brochureForm = document.getElementById('brochure-form');
+if (brochureForm) {
+  brochureForm.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    
+    const submitButton = this.querySelector('#brochure-btn');
+    const originalButtonText = submitButton.textContent;
+    
+    // Disable button and show loading state
+    submitButton.disabled = true;
+    submitButton.textContent = 'Submitting...';
+    
+    // Get form data
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+    
+    try {
+      const response = await fetch('https://emailjsfuntions-428145106157.asia-south1.run.app/varunda-city-brochure-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+      
+      const result = await response.json();
+      
+      // Check if response is successful
+      if (response.ok && result.success) {
+        // Download brochure automatically
+        downloadBrochure('./Vrunda-Brochure.pdf'); // Change this to your PDF path
+        
+        // Reset form fields
+        this.reset();
+        
+        // Show success message
+        alert('Thank you! Your request has been submitted. The brochure is downloading now.');
+        
+        // Re-enable button
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      } else {
+        // Show error message
+        alert(result.message || 'Failed to submit form. Please try again.');
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again later.');
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+    }
+  });
+}
+</script>
     <!-- <script defer type="text/javascript" src="buildesk.js"></script> -->
 </body>
 
